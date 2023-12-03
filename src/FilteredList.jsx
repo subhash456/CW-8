@@ -1,47 +1,52 @@
 import React, { Component } from 'react';
+import { Dropdown } from 'react-bootstrap';
 import List from './List';
 
 class FilteredList extends Component {
   constructor(props) {
     super(props);
-
-    //The state is just a list of key/value pairs (like a hashmap)
     this.state = {
       search: "",
-      type: ""
+      type: "all",
     };
   }
 
-  //Sets the state whenever the user types on the search bar
   onSearch = (event) => {
     this.setState({ search: event.target.value.trim().toLowerCase() });
   }
 
-  //Sets the state whenever the user types on the type filter input
-  onFilter = (event) => {
-    this.setState({ type: event.target.value.trim().toLowerCase() });
+  onDropdownSelect = (type) => {
+    this.setState({ type });
   }
 
   filterItem = (item) => {
-    const search = this.state.search;
-    const type = this.state.type;
+    const { search, type } = this.state;
 
-    if (search && type) {
-      return item.name.toLowerCase().includes(search) && item.type.toLowerCase() === type;
-    } else if (search) {
-      return item.name.toLowerCase().includes(search);
-    } else if (type) {
-      return item.type.toLowerCase() === type;
-    } else {
-      return true;
-    }
+    const searchCondition = item.name.toLowerCase().search(search) !== -1;
+    const typeCondition = type === "all" || item.type.toLowerCase() === type;
+
+    return searchCondition && typeCondition;
   }
 
-  render(){
+  render() {
     return (
-      <div className="filter-list">
-        <h1>Produce Search</h1>
-        <input type="text" placeholder="Search" value={this.state.search} onChange={this.onSearch} />
+      <div className="App-dropdown">
+        {/* Dropdown component with wrapper */}
+        <Dropdown onSelect={(eventKey) => this.onDropdownSelect(eventKey)}>
+          <Dropdown.Toggle id="typeDropdown">
+            Type: {this.state.type.charAt(0).toUpperCase() + this.state.type.slice(1)}
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item eventKey="all">All</Dropdown.Item><br></br>
+            <Dropdown.Item eventKey="fruit">Fruit</Dropdown.Item><br></br>
+            <Dropdown.Item eventKey="vegetable">Vegetable</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+
+        {/* Search input */}
+        <input type="text" placeholder="Search" onChange={this.onSearch} />
+
+        {/* List component with filtered items */}
         <List items={this.props.items.filter(this.filterItem)} />
       </div>
     );
