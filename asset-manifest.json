@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/subhash456/CW-8.git/static/css/main.7f72dcd8.css",
-    "main.js": "/subhash456/CW-8.git/static/js/main.200ed2df.js",
-    "static/js/787.d4aba7ab.chunk.js": "/subhash456/CW-8.git/static/js/787.d4aba7ab.chunk.js",
-    "index.html": "/subhash456/CW-8.git/index.html",
-    "main.7f72dcd8.css.map": "/subhash456/CW-8.git/static/css/main.7f72dcd8.css.map",
-    "main.200ed2df.js.map": "/subhash456/CW-8.git/static/js/main.200ed2df.js.map",
-    "787.d4aba7ab.chunk.js.map": "/subhash456/CW-8.git/static/js/787.d4aba7ab.chunk.js.map"
+    "main.css": "/CW-8/static/css/main.7f72dcd8.css",
+    "main.js": "/CW-8/static/js/main.a78e86cf.js",
+    "static/js/787.d4aba7ab.chunk.js": "/CW-8/static/js/787.d4aba7ab.chunk.js",
+    "index.html": "/CW-8/index.html",
+    "main.7f72dcd8.css.map": "/CW-8/static/css/main.7f72dcd8.css.map",
+    "main.a78e86cf.js.map": "/CW-8/static/js/main.a78e86cf.js.map",
+    "787.d4aba7ab.chunk.js.map": "/CW-8/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7f72dcd8.css",
-    "static/js/main.200ed2df.js"
+    "static/js/main.a78e86cf.js"
   ]
 }
